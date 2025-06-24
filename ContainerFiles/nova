@@ -75,7 +75,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
                                              libosinfo-bin \
                                              gir1.2-libosinfo-1.0 \
                                              nfs-common \
-                                             cryptsetup nvme-cli
+                                             cryptsetup nvme-cli \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/* \

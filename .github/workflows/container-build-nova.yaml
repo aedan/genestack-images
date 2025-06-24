@@ -1,5 +1,5 @@
 ---
-name: Create and publish a Magnum image
+name: Create and publish a Nova image
 
 permissions:
   actions: read
@@ -29,7 +29,7 @@ on:
           - stable/2024.1
           - stable/2025.1
       project-version:
-        description: 'Version of OpenStack Magnum to build, defaults to openstack-constraints if unspecified'
+        description: 'Version of OpenStack Nova to build, defaults to openstack-constraints if unspecified'
         required: false
         type: string
 

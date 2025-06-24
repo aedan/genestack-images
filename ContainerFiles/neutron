@@ -41,12 +41,7 @@ RUN /var/lib/openstack/bin/pip install --constraint https://opendev.org/openstac
                                        graphviz \
                                        netaddr \
                                        python-memcached
-
-RUN export PLUGIN_VERSION="${OS_VERSION}"; \
-                                       if [ "${PLUGIN_VERSION}" != 'master' ]; then export PLUGIN_VERSION=stable/${PLUGIN_VERSION}; fi; \
-                                       /var/lib/openstack/bin/pip install --upgrade \
-                                       git+https://github.com/openstack/oslo.db@${PLUGIN_VERSION}#egg=oslo_db 
-
+RUN if [ "${OS_VERSION}" == '2025.1' ]; then /var/lib/openstack/bin/pip install --upgrade git+https://github.com/openstack/oslo.db@stable/2025.1#egg=oslo_db; fi
 COPY scripts/neutron-cve-patching.sh /opt/
 RUN bash /opt/neutron-cve-patching.sh
 

@@ -63,6 +63,7 @@ COPY --from=dependency_build /var/lib/openstack /var/lib/openstack
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update && apt-get upgrade -y \
   && apt-get install --no-install-recommends -y libxml2 \
+                                                dhclient \
                                                 iptables-persistent \
                                                 netfilter-persistent \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
